@@ -91,7 +91,7 @@ The final model was validated using a separate test set.
 ## 8. Results  
 The sample prediction from our trained model is shown below:  
 
-![alt text](./images/predition.png)  
+![alt text](./images/prediction.png)  
 
 We can see that the actual image is trouser and our model has chosen the label as trouser too.  
 From the model setting, constraints and the available dataset, our model has obtained **90.33%** on the unseen test dataset.  
