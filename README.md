@@ -34,22 +34,24 @@ Each training and test example is assigned to one of the following labels:
 ## 3. Data Preparation and Cleaning:
 ### Data Transformation: 
 
-**RandomVerticalFlip**: This transformation randomly flips images vertically. It's often used to augment the dataset, making the model more robust by considering vertically flipped versions of the same images.  
-**RandomHorizontalFlip**: Similarly, this transformation randomly flips images horizontally. It's another data augmentation technique to increase the diversity of training examples.  
-**ToTensor**: This transformation converts the image data into PyTorch tensors. Deep learning models, especially in PyTorch, require input data in tensor format.  
-**Normalize((0.5,), (0.5,))**: This is a normalization transformation. It subtracts a mean value of 0.5 from each channel and divides by 0.5 to scale the pixel values to be in the range [-1, 1].  
+- **RandomVerticalFlip**: This transformation randomly flips images vertically. It's often used to augment the dataset, making the model more robust by considering vertically flipped versions of the same images.  
+- **RandomHorizontalFlip**: Similarly, this transformation randomly flips images horizontally. It's another data augmentation technique to increase the diversity of training examples.  
+- **ToTensor**: This transformation converts the image data into PyTorch tensors. Deep learning models, especially in PyTorch, require input data in tensor format.  
+- **Normalize((0.5,), (0.5,))**: This is a normalization transformation. It subtracts a mean value of 0.5 from each channel and divides by 0.5 to scale the pixel values to be in the range [-1, 1].  
 
 ## 4. Exploratory Data Analysis (EDA):
 
 ### Data Visualization: We shall check couple of the data points in the dataset.
 
-![alt text](./images/.png)  
+![alt text](./images/dress.png)  
 
-![alt text](./images/.png)  
+![alt text](./images/sneaker.png)  
 
 ## 5. Feature Selection and Engineering:
 
-In image classification, the features are the pixels themselves, so feature selection and engineering were not relevant in this context.
+In image classification, the features are the pixels themselves, so feature selection and engineering were not relevant in this context.  
+We can see the grid of images below after the preproccessed phase:  
+![alt text](./images/training_sample_grid.png)  
 
 ## 6. Model Selection and Training:
 
@@ -60,7 +62,7 @@ We divided the dataset into training(80%) and validation sets(20%) of the 60,000
 ### Algorithm Selection:  
 Implemented a convolutional neural network (CNN) for its effectiveness in image classification tasks and here we
 are restricted that the number of parameters shouldn't be more than 100,000.  
-![alt text](./images/.png)    
+![alt text](./images/model_summary.png)    
 
 ### Model Training:  
 - **Evaluation metric**: Accuracy. 
@@ -78,38 +80,38 @@ We adjusted hyperparameters like the learning rate, batch size, number of epochs
 The final model was validated using a separate test set.  
 Model performance graphs are plotted to monitor the CNN model.  
 
-![alt text](./images/.png)  
+![alt text](./images/accuracy_epoch.png)  
 
-![alt text](./images/.png)  
+![alt text](./images/loss_epoch.png)  
 
 
 
-## Results  
+## 8. Results  
 The sample prediction from our trained model is shown below:  
 
-![alt text](./images/.png)  
+![alt text](./images/predition.png)  
 
-## 8. Model Deployment and Integration:
+We can see that the actual image is trouser and our model has chosen the label as trouser too.  
 
-Model Deployment: The final model was implemented into a production environment.
-Integration: The model was integrated with relevant systems or workflows.
+## 9. Further options to increase the test accuracy
+**Data augmentation**: Diversifies your training set and leads to better generalization
 
-Scalability: The deployed model was optimized for scalability, reliability, and efficiency.
+- Flipping
+- Rotation
+- Shifting
+- Cropping
+- Adding noise
+- Blurring
 
-## 9. Monitor and Maintain the Model:
+**Regularization**: Reduces overfitting on the training set
 
-Continuous Monitoring: The model's performance and accuracy were continuously monitored.
-Periodic Updates: The model was updated periodically with new data.
-Retraining: Retraining or re-evaluation was performed when necessary.
+- Early stopping
+- Dropout
+- regularization
+- Batch normalization
 
-## 10. Communicate and Visualize Results:
-
-Results Summary: The findings and insights from the analysis were summarized.
-Effective Visualization: Visualizations and storytelling techniques were employed to communicate results clearly and understandably.
-
-
-## 11. Iterate and Improve:
-
-Reflection: We reflected on the project process and outcomes.
-Feedback: Feedback from stakeholders and domain experts was incorporated.
-Areas for Improvement: We identified areas for improvement and potential future work.
+**Hyperparameter tuning**:
+- Weight initialization
+- Learning rate
+- Activation functions
+- Optimizers
